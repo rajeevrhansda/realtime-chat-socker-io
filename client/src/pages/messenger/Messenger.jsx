@@ -8,15 +8,29 @@ import ChatOnline from '../../components/chatOnline/ChatOnline'
 import { AuthContext } from '../../context/AuthContext'
 import { useContext, useEffect, useRef, useState } from "react";
 import axios from 'axios'
+ import {io} from 'socket.io-client'
 
 export default function Messenger() {
     const [conversations, setConversations] = useState([]);
     const [currentChat, setCurrentChat] = useState(null);
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState("");
+    const socket = useRef()
     const scrollRef = useRef();
 
     const { user } = useContext(AuthContext);
+
+    useEffect(()=>{
+        socket.current = io("ws://localhost:8900")
+    },[])
+
+    useEffect(()=>{
+        socket.current.emit("addUser", user._id);
+        socket.current.on("getUsers", users=>{
+            console.log(users);
+        })
+    },[user]);
+  
 
     useEffect(() => {
         const getConversations = async () => {
@@ -70,11 +84,24 @@ export default function Messenger() {
                 <div className="chatMenu">
                     <div className="chatMenuWrapper">
                         <input placeholder="Search for friends" className="chatMenuInput" />
-                        {conversations.map((c) => (
+
+
+                        {/* ==============VIDEO CODE =============================== */}
+                        {/* {conversations.map((c) => (
                             <div onClick={() => setCurrentChat(c)}>
                                 <Conversation conversation={c} currentUser={user} />
                             </div>
+                        ))} */}
+
+                        {/* ==============MY CODE =============================== */}
+
+                        {conversations.map((c, index) => (
+                            <div key={index} onClick={() => setCurrentChat(c)}>
+                                <Conversation conversation={c} currentUser={user} />
+                            </div>
                         ))}
+                        {/* ==============MY CODE =============================== */}
+
                     </div>
                 </div>
                 <div className="chatBox">
