@@ -1,0 +1,36 @@
+"username": "Sanjay",
+    "email": "sanjay@test.com",
+    "password": "9241134"
+
+
+
+{"
+_id":{"$oid":"62c9ccb54c31c8e191ebda26"},
+"username":"Rajeev",
+"email":"rajeev@test.com",
+"password":"$2b$10$IcRUr94Pqc3M91b6PLi/muzHrzw8IxrWx/FYmy1bPsCzr1KRfhJCe",
+"profilePicture":"person/10.jpeg",
+"coverPicture":"",
+"followers":
+	[
+		"62c9d19d558fdc48c94ee5f8",
+		"62c9cca24c31c8e191ebda24"
+	],
+"followings":
+	[
+		"62c9cca24c31c8e191ebda24",
+		"62c9d19d558fdc48c94ee5f8"],
+"isAdmin":false,
+"createdAt":{"$date":{"$numberLong":"1657392309827"}},
+"updatedAt":{"$date":{"$numberLong":"1657614998293"}},
+"__v":{"$numberInt":"0"},
+"city":"Jharkhand",
+"desc":"Hey i am Rajeev",
+"from":"India",
+"relationship":{"$numberInt":"1"}
+}
+
+
+indu
+indu@test.com
+123123
