@@ -141,11 +141,21 @@ export default function Messenger() {
                         {currentChat ? (
                             <>
                                 <div className="chatBoxTop">
-                                    {messages.map((m) => (
+                                    {/* ============ VIDEO CODE ============*/}
+
+                                    {/* {messages.map((m) => (
                                         <div ref={scrollRef}>
                                             <Message message={m} own={m.sender === user._id} />
                                         </div>
+                                    ))} */}
+                                    {/* ============ MY CODE ============ */}
+                                    {messages.map((m, index) => (
+                                        <div ref={scrollRef} key={index}>
+                                            <Message message={m} own={m.sender === user._id} />
+                                        </div>
                                     ))}
+                                    {/* ============ MY CODE ============ */}
+
                                 </div>
                                 <div className="chatBoxBottom">
                                     <textarea
