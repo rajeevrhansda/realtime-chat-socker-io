@@ -1,44 +1,52 @@
-
-.messenger{
+.messenger {
     height: calc(100vh - 70px);
     display: flex;
 }
-.chatMenu{
+
+.chatMenu {
     flex: 3.5;
 }
-.chatMenuInput{
+
+.chatMenuInput {
     width: 90%;
     padding: 10px 0;
     border: none;
     border-bottom: 1px solid gray;
 }
-.chatBox{
+
+.chatBox {
     flex: 5.5;
-    
+
 }
-.chatBoxWrapper{
+
+.chatBoxWrapper {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+    position: relative;
+
 }
-.chatBoxTop{
+
+.chatBoxTop {
     height: 100%;
     overflow: scroll;
     padding-right: 10px;
 }
-.chatBoxBottom{
+
+.chatBoxBottom {
     margin-top: 5px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-.chatMessageInput{
+
+.chatMessageInput {
     width: 80%;
     height: 90px;
     padding: 10px;
 }
-.chatSubmitButton{
+
+.chatSubmitButton {
     width: 70px;
     height: 40px;
     border: none;
@@ -47,13 +55,24 @@
     background-color: teal;
     color: white;
 }
-.chatOnline{
-    flex:3;
+
+.chatOnline {
+    flex: 3;
 }
+
 .chatMenuWrapper,
 .chatBoxWrapper,
-.chatOnlineWrapper{
+.chatOnlineWrapper {
     padding: 10px;
     height: 100%;
+
+}
+
+.noConversationText {
+    position: absolute;
+    top: 10%;
+    font-size: 50px;
+    color: rgb(244, 220, 220);
+    cursor: default;
 
 }
