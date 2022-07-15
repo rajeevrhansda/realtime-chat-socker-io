@@ -17,7 +17,7 @@ router.post("/",async (req,res)=>{
     
 });
 
-//det conersation of a user
+//get conersation of a user
 router.get('/:userId', async (req, res)=>{
     try{
         const conservation = await Conversation.find({
@@ -27,6 +27,18 @@ router.get('/:userId', async (req, res)=>{
     }catch(err){
         res.status(500).json(err);
     }
-})
+});
 
+//get conservation of two user id
+router.get("/find/:firstUserId/:secondUserId", async (req, res) =>{
+    try{
+        const conversation = await Conversation.findOne({
+            members: {$all:[req.params.firstUserId, req.params.secondUserId]},
+
+        });
+        res.status(200).json(conversation);
+    }catch(err){
+        res.status(500).json(err);
+    }
+})
 module.exports = router;
